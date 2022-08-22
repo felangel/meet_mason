@@ -11,7 +11,7 @@ slidenumbers: true
 
 ---
 
-# Very Good Ventures, Chicago 🕶️🦄
+# About Me 🕶️🦄
 
 ![inline](./assets/github.png)![inline 10%](./assets/unicorn-vgv-black.png)
 
@@ -19,19 +19,15 @@ slidenumbers: true
 
 ---
 
-# Scenario A: Enterprise/Large Team
+# Has this ever happened to you?
+
+- Creating new features
+- Creating new packages
+- Creating new applications
 
 ---
 
-# Scenario B: Consulting/Freelance
-
----
-
-# Scenario C: Hobbyist/Student
-
----
-
-# Identifying the Problem(s)
+# The Problem(s)
 
 ❓ Produce consistent code efficiently
 
@@ -47,21 +43,25 @@ slidenumbers: true
 
 🧐 Copy + Paste
 
+🧐 Gists
+
 🧐 GitHub Templates
 
 🧐 VSCode/IntelliJ Snippets
 
-🧐 Gists
+🧐 Custom Tooling
+CLIs (`flutter create` / `dart create`)
+IDE (VSCode / IntelliJ Extensions)
 
 ---
 
-# Meet Mason 🧱
+# Meet Mason 👋
 
 ![inline](assets/mason_ecosystem.png)
 
 ---
 
-# Mason CLI 🧑‍💻
+# Intro to Mason CLI 🧑‍💻
 
 [.column]
 
@@ -129,73 +129,169 @@ Run "mason help <command>" for more information about a command.
 
 ---
 
-# Creating a Local Workspace 📁
+# The Smallest Unit: A Brick 🧱
+
+---
+
+# Creating a Brick
 
 ```
-$ mason init
-✓ Initializing (49ms)
-✓ Getting bricks (0.5s)
-✓ Generated 1 file(s):
-  /me/mason_playground/mason.yaml (new)
+$ mason new
 ```
 
 ---
 
-# Closer Look at `mason.yaml` 👀
+# Anatomy of a Brick
 
-```yaml
-# Register bricks which can be consumed via the Mason CLI.
-# https://github.com/felangel/mason
-bricks:
-  # Sample Brick
-  # Run `mason make hello` to try it out.
-  hello: "0.1.0+1"
-  # Bricks can also be imported via git url.
-  # Uncomment the following lines to import
-  # a brick from a remote git url.
-  # widget:
-  #   git:
-  #     url: https://github.com/felangel/mason.git
-  #     path: bricks/widget
-```
+- `brick.yaml`
+- `__brick__`
+- hooks (optional)
 
 ---
 
-# Listing Locally Installed Bricks 🧱
+# Intro to Mustache 🥸
 
-[.column]
-
-```sh
-# You can also use `mason list`.
-$ mason ls
-/me/mason_playground
-└── hello 0.1.0+1 -> registry.brickhub.dev
-```
+- Syntax
+- Lambdas
+- Partials
+- Conditionals
+- Loops
 
 ---
 
-# `mason make`
-
-```sh
-$ mason make hello
-? What is your name? (Dash)
-```
+# What's inside a `brick.yaml`?
 
 ---
 
-# `mason make`
-
-```sh
-$ mason make hello
-? What is your name? (Dash) Felix
-✓ Made brick hello (51ms)
-✓ Generated 1 file:
-  /me/mason_playground/HELLO.md (new)
-```
+# Variables Types
 
 ---
 
-# Questions?
+# Intro to Hooks
+
+- pre gen
+- post gen
+
+---
+
+# Brick Management
+
+## (the new state management)
+
+---
+
+# Brick Scopes
+
+- Local vs Global
+
+---
+
+# Adding Bricks
+
+- `path`
+- `git`
+- `remote`
+
+---
+
+# Removing Bricks
+
+---
+
+# Listing Bricks
+
+---
+
+# Brick Cache Management
+
+---
+
+# Generating Code via `mason make`
+
+---
+
+# Bundling
+
+- Universal vs Dart Bundles
+
+---
+
+# Programmatic Code Generation with `package:mason`
+
+- `package:very_good_cli`
+- `package:dart_frog_cli`
+
+---
+
+# Putting it all together
+
+---
+
+# Mason VSCode Extension
+
+---
+
+# Intro to BrickHub
+
+- Discover
+- Consume
+- Publish
+
+---
+
+# Brick Discovery
+
+---
+
+# Brick Consumption
+
+---
+
+# Publishing a Brick
+
+---
+
+# Let's Recap
+
+✅ Produce consistent code efficiently
+
+✅ Code must be customizable
+
+✅ Should be reusable and extensible
+
+✅ Should be accessible to team/community
+
+---
+
+# New Features
+
+- https://brickhub.dev/bricks/feature_brick
+- https://brickhub.dev/bricks/model
+- https://brickhub.dev/bricks/service
+- https://brickhub.dev/bricks/app_ui
+
+---
+
+# New Packages
+
+- https://brickhub.dev/bricks/very_good_dart_package
+- https://brickhub.dev/bricks/very_good_flutter_package
+- https://brickhub.dev/bricks/app_ui
+- https://brickhub.dev/bricks/widgetbook_starter
+
+---
+
+# New Applications
+
+- https://brickhub.dev/bricks/very_good_core
+- https://brickhub.dev/bricks/very_good_dart_cli
+- https://brickhub.dev/bricks/amplify_starter
+- https://brickhub.dev/bricks/flutterfire_starter
+- https://brickhub.dev/bricks/macosui_starter
+
+---
+
+# What's Next?
 
 ---
 
