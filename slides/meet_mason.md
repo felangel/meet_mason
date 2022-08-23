@@ -19,11 +19,29 @@ slidenumbers: true
 
 ---
 
-# Has this ever happened to you?
+# Story Time 🧑‍🏫
 
-- Creating new features
-- Creating new packages
-- Creating new applications
+- Joined a new team
+- Was assigned a new feature
+- So did what any developer would do...find a similar feature and copy/paste
+- Then renamed files, directories, classes, logic, tests
+- And open pull request...
+
+---
+
+# Story Time 🧑‍🏫
+
+- REJECTED ❌❌❌
+- The feature I copied was a "legacy" feature and was not the up-to-date way of structuring a feature
+- 😭😭😭
+
+---
+
+# Story Time 🧑‍🏫
+
+- Back to square one... 🗒
+- Lots of wasted time... ⌛️
+- Both sides frustrated... 😤
 
 ---
 
@@ -52,6 +70,12 @@ slidenumbers: true
 🧐 Custom Tooling
 CLIs (`flutter create` / `dart create`)
 IDE (VSCode / IntelliJ Extensions)
+
+---
+
+# Better Idea...
+
+- Spend a year working on an OSS tool that would help automate this type of thing
 
 ---
 
