@@ -193,7 +193,7 @@ Run "mason help <command>" for more information about a command.
 
 ---
 
-# $ mason init 📁
+# `$ mason init` 📁
 
 > _Create a locally scoped workspace for working with bricks_
 
@@ -492,6 +492,41 @@ $ mason make hello
 # Chapter 2: Creating a Brick 📗
 
 - ☑️ Generating a new brick
+- ☑️ Anatomy of a brick
+- ☑️ Brick template syntax
+- ☑️ Hooks
+
+---
+
+# `$ mason new` ⛏
+
+> _Create a new brick template_
+
+- creates a brick in the current directory
+  - generates a `brick.yaml`
+  - generates a `__brick__` directory
+- includes `README`, `LICENSE`, and `CHANGELOG`
+
+---
+
+# `$ mason new` in action
+
+```sh
+$ mason new example
+✓ Created new brick: example (74ms)
+✓ Generated 5 file(s):
+  /me/mason_playground/example/brick.yaml (new)
+  /me/mason_playground/example/README.md (new)
+  /me/mason_playground/example/CHANGELOG.md (new)
+  /me/mason_playground/example/LICENSE (new)
+  /me/mason_playground/example/__brick__/HELLO.md (new)
+```
+
+---
+
+# Chapter 2: Checkpoint 📕 🏁
+
+- ✅ Generating a new brick
 - ☑️ Anatomy of a brick
 - ☑️ Brick template syntax
 - ☑️ Hooks
