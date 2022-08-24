@@ -13,7 +13,7 @@ slidenumbers: true
 
 # About Me 🕶️🦄
 
-![inline](./assets/github.png)![inline 10%](./assets/unicorn-vgv-black.png)
+![inline](./assets/github.png)![inline 40%](./assets/vgv_lockup.png)
 
 ### [https://verygood.ventures](https://verygood.ventures)
 
@@ -22,30 +22,52 @@ slidenumbers: true
 # Story Time 🧑‍🏫
 
 - Joined a new team
-- Was assigned a new feature
-- So did what any developer would do...find a similar feature and copy/paste
-- Then renamed files, directories, classes, logic, tests
-- And open pull request...
+- Assigned to a new feature
+
+![inline](./assets/team.png)
 
 ---
 
 # Story Time 🧑‍🏫
 
-- REJECTED ❌❌❌
-- The feature I copied was a "legacy" feature and was not the up-to-date way of structuring a feature
-- 😭😭😭
+- So I did what any developer would do...
+
+![inline](./assets/copy_paste.png)
 
 ---
 
 # Story Time 🧑‍🏫
 
-- Back to square one... 🗒
-- Lots of wasted time... ⌛️
-- Both sides frustrated... 😤
+- And opened a pull request...
+
+![inline](./assets/create_pull_request.png)
 
 ---
 
-# The Problem(s)
+# Story Time 🧑‍🏫
+
+![inline](./assets/pull_request_rejected.png)
+
+- Rejected 🙅‍♂️
+- I copied a "legacy" feature 😭
+
+---
+
+# Story Time 🧑‍🏫
+
+[.column]
+
+- 🗒 Back to square one...
+- ⌛️ Lots of wasted time...
+- 😤 Both sides frustrated...
+
+[.column]
+
+![inline](./assets/rejected_pull_request_reaction.png)
+
+---
+
+# The Problems
 
 ❓ Produce consistent code efficiently
 
@@ -67,15 +89,15 @@ slidenumbers: true
 
 🧐 VSCode/IntelliJ Snippets
 
-🧐 Custom Tooling
-CLIs (`flutter create` / `dart create`)
-IDE (VSCode / IntelliJ Extensions)
+🧐 Custom Tooling (CLIs, IDE Extensions, etc.)
 
 ---
 
-# Better Idea...
+# Better Idea 🧠
 
-- Spend a year working on an OSS tool that would help automate this type of thing
+- Spend the next year building a tool to automate this
+
+![inline](assets/automate_meme.webp)
 
 ---
 
@@ -516,6 +538,10 @@ $ mason make hello
 ---
 
 # Roadmap 🗺
+
+- Multiple Template Engine Support
+- Template Extensions
+- Multiple Publishers
 
 ---
 
