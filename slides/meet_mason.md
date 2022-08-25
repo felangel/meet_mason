@@ -1182,7 +1182,7 @@ $ mason remove -g widget
 
 ---
 
-# Chapter 4: Publishing Bricks 📙
+# Chapter 4: Publishing Bricks 📙 📦
 
 - ☑️ Signing up
 - ☑️ Logging in
@@ -1191,7 +1191,101 @@ $ mason remove -g widget
 
 ---
 
+# Signing Up ✍️
+
+- 🙋 Request access at [https://brickhub.dev](https://brickhub.dev)
+- 📬 Receive email invite
+- ✍️ Sign up at [https://brickhub.dev/signup](https://brickhub.dev/signup)
+- 📧 Verify email
+
+---
+
+# Chapter 4: Checkpoint 📙 🏁
+
+- ✅ Signing up
+- ☑️ Logging in
+- ☑️ Publishing a brick
+- ☑️ Logging out
+
+---
+
+# Logging In 🔐
+
+**Log into brickhub.dev**
+
+```sh
+$ mason login
+email: me@email.com
+password: ******
+✓ Logged into brickhub.dev (0.5s)
+You are now logged in as <me@email.com>
+```
+
+---
+
+# Chapter 4: Checkpoint 📙 🏁
+
+- ✅ Signing up
+- ✅ Logging in
+- ☑️ Publishing a brick
+- ☑️ Logging out
+
+---
+
+# Publishing a Brick 📦
+
+**Publish a brick to brickhub.dev**
+
+```sh
+$ mason publish --directory ./my_brick
+Do you want to publish my_brick 0.1.0+1? (y/N) y
+✓ Bundled my_brick (0.1s)
+✓ Published my_brick to brickhub.dev (0.1s)
+```
+
+---
+
+# Chapter 4: Checkpoint 📙 🏁
+
+- ✅ Signing up
+- ✅ Logging in
+- ✅ Publishing a brick
+- ☑️ Logging out
+
+---
+
+# Logging Out 🚪
+
+**Log out of brickhub.dev**
+
+```sh
+$ mason logout
+✓ Logged out of brickhub.dev (3ms)
+```
+
+---
+
+# Chapter 4: Complete 📙 🥳
+
+- ✅ Signing up
+- ✅ Logging in
+- ✅ Publishing a brick
+- ✅ Logging out
+
+---
+
 # IDE Integration ⚡️
+
+[.column]
+
+![inline](assets/mason_vscode.png)
+
+[.column]
+
+- `mason init` command
+- `mason add` and `mason remove` commands
+- `mason make` via right-click
+- automatically run `mason get` on save
 
 ---
 
