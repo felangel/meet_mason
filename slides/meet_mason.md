@@ -955,6 +955,7 @@ Hello {{name}}!
 - Multiple Template Engine Support
 - Template Extensions
 - Multiple Publishers
+- IntelliJ Plugin
 
 ---
 
