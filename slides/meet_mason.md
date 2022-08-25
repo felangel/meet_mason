@@ -354,6 +354,8 @@ $ mason make hello
 
 # `$ mason make` in action
 
+[.column]
+
 ```sh
 $ mason make hello
 ? What is your name? (Dash) Felix
@@ -362,9 +364,9 @@ $ mason make hello
   /me/mason_playground/HELLO.md (new)
 ```
 
----
+[.column]
 
-# What's inside `HELLO.md` 👀
+#### **HELLO.md**
 
 ```md
 Hello Felix! 👋
@@ -600,7 +602,7 @@ vars:
 
 ---
 
-# Variable Type: Array
+# Variable Type: `array`
 
 [.column]
 
@@ -633,7 +635,7 @@ $ mason make example
 
 ---
 
-# Variable Type: Enum
+# Variable Type: `enum`
 
 [.column]
 
@@ -707,13 +709,13 @@ vars:
 
 ```sh
 $ mason make hello
-? What is your name? Vikings
+? What is your name? Viking
 ```
 
 ##### `HELLO.md`
 
 ```md
-Hello Vikings! 👋
+Hello Viking! 👋
 ```
 
 ---
@@ -723,6 +725,188 @@ Hello Vikings! 👋
 - ✅ Generating a new brick
 - ✅ Anatomy of a brick
 - ☑️ Brick template syntax
+- ☑️ Hooks
+
+---
+
+# Template Syntax
+
+- mustache using:
+  - `package:mustache_template`
+- refer to mustache spec:
+  - https://mustache.github.io/mustache.5.html
+
+---
+
+# Template Syntax: Conditionals
+
+[.column]
+
+##### `__brick__/pubspec.yaml`
+
+```yaml
+{{^publish}}
+publish_to: none
+{{/publish}}
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  {{#useGoogleFonts}}
+  google_fonts: latest
+  {{/useGoogleFonts}}
+```
+
+[.column]
+
+```json
+{
+  "publish": false,
+  "useGoogleFonts": true
+}
+```
+
+##### `pubspec.yaml`
+
+```yaml
+publish_to: none
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  google_fonts: latest
+```
+
+---
+
+# Template Syntax: Loops
+
+[.column]
+
+##### `__brick__/README.md`
+
+```md
+{{#platforms}}
+
+- {{.}}
+  {{/platforms}}
+```
+
+[.column]
+
+```json
+{
+  "platforms": ["iOS", "Android", "Web"]
+}
+```
+
+##### `README.md`
+
+```md
+- iOS
+- Android
+- Web
+```
+
+---
+
+# Template Syntax: Lambdas
+
+**Functions that can be used to manipulate rendered text**
+
+- Standard Syntax: `{{#upperCase}}{{name}}{{/upperCase}}`
+
+- Shorthand: `{{name.upperCase()}}`
+
+---
+
+# Built-in Lambdas
+
+| Name           | Example             | Shorthand Syntax              | Full Syntax                                      |
+| -------------- | ------------------- | ----------------------------- | ------------------------------------------------ |
+| `camelCase`    | `helloWorld`        | `{{variable.camelCase()}}`    | `{{#camelCase}}{{variable}}{{/camelCase}}`       |
+| `constantCase` | `HELLO_WORLD`       | `{{variable.constantCase()}}` | `{{#constantCase}}{{variable}}{{/constantCase}}` |
+| `dotCase`      | `hello.world`       | `{{variable.dotCase()}}`      | `{{#dotCase}}{{variable}}{{/dotCase}}`           |
+| `headerCase`   | `Hello-World`       | `{{variable.headerCase()}}`   | `{{#headerCase}}{{variable}}{{/headerCase}}`     |
+| `lowerCase`    | `hello world`       | `{{variable.lowerCase()}}`    | `{{#lowerCase}}{{variable}}{{/lowerCase}}`       |
+| `mustacheCase` | `{{ Hello World }}` | `{{variable.mustacheCase()}}` | `{{#mustacheCase}}{{variable}}{{/mustacheCase}}` |
+| `pascalCase`   | `HelloWorld`        | `{{variable.pascalCase()}}`   | `{{#pascalCase}}{{variable}}{{/pascalCase}}`     |
+| `paramCase`    | `hello-world`       | `{{variable.paramCase()}}`    | `{{#paramCase}}{{variable}}{{/paramCase}}`       |
+| `pathCase`     | `hello/world`       | `{{variable.pathCase()}}`     | `{{#pathCase}}{{variable}}{{/pathCase}}`         |
+| `sentenceCase` | `Hello world`       | `{{variable.sentenceCase()}}` | `{{#sentenceCase}}{{variable}}{{/sentenceCase}}` |
+| `snakeCase`    | `hello_world`       | `{{variable.snakeCase()}}`    | `{{#snakeCase}}{{variable}}{{/snakeCase}}`       |
+| `titleCase`    | `Hello World`       | `{{variable.titleCase()}}`    | `{{#titleCase}}{{variable}}{{/titleCase}}`       |
+| `upperCase`    | `HELLO WORLD`       | `{{variable.upperCase()}}`    | `{{#upperCase}}{{variable}}{{/upperCase}}`       |
+
+---
+
+# Lambdas in Action: Widget
+
+**`__brick__/{{name.snakeCase()}}.dart`**
+
+```dart
+import 'package:flutter/widgets.dart';
+
+class {{name.pascalCase()}} extends StatelessWidget {
+  const {{name.pascalCase()}}({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox();
+  }
+}
+```
+
+---
+
+# Template Syntax: Partials
+
+**Nested Templates within other templates**
+
+[.column]
+
+```
+__brick__
+  ├── HELLO.md
+  ├── {{~ footer.md }}
+  └── {{~ header.md }}
+```
+
+[.column]
+
+##### {{~ header.md }}
+
+```md
+# 🧱 {{name}}
+```
+
+##### {{~ footer.md }}
+
+```md
+_made with 💖 by mason_
+```
+
+[.column]
+
+##### HELLO.md
+
+```md
+{{> header.md }}
+
+Hello {{name}}!
+
+{{> footer.md }}
+```
+
+---
+
+# Chapter 2: Checkpoint 📕 🏁
+
+- ✅ Generating a new brick
+- ✅ Anatomy of a brick
+- ✅ Brick template syntax
 - ☑️ Hooks
 
 ---
@@ -781,128 +965,6 @@ Hello Vikings! 👋
 ### Twitter @felangelov
 
 ### GitHub @felangel
-
----
-
-# The Smallest Unit: A Brick 🧱
-
----
-
-# Creating a Brick
-
-```
-$ mason new
-```
-
----
-
-# Anatomy of a Brick
-
-- `brick.yaml`
-- `__brick__`
-- hooks (optional)
-
----
-
-# Intro to Mustache 🥸
-
-- Syntax
-- Lambdas
-- Partials
-- Conditionals
-- Loops
-
----
-
-# What's inside a `brick.yaml`?
-
----
-
-# Variables Types
-
----
-
-# Intro to Hooks
-
-- pre gen
-- post gen
-
----
-
-# Brick Management
-
-## (the new state management)
-
----
-
-# Brick Scopes
-
-- Local vs Global
-
----
-
-# Adding Bricks
-
-- `path`
-- `git`
-- `remote`
-
----
-
-# Removing Bricks
-
----
-
-# Listing Bricks
-
----
-
-# Brick Cache Management
-
----
-
-# Generating Code via `mason make`
-
----
-
-# Bundling
-
-- Universal vs Dart Bundles
-
----
-
-# Programmatic Code Generation with `package:mason`
-
-- `package:very_good_cli`
-- `package:dart_frog_cli`
-
----
-
-# Putting it all together
-
----
-
-# Mason VSCode Extension
-
----
-
-# Intro to BrickHub
-
-- Discover
-- Consume
-- Publish
-
----
-
-# Brick Discovery
-
----
-
-# Brick Consumption
-
----
-
-# Publishing a Brick
 
 ---
 
