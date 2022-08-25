@@ -1,3 +1,4 @@
+autoscale: true
 footer: @felangelov - Flutter Vikings 2022
 slidenumbers: true
 
@@ -195,7 +196,7 @@ Run "mason help <command>" for more information about a command.
 
 # `$ mason init` 📁
 
-> _Create a locally scoped workspace for working with bricks_
+**Create a locally scoped workspace for working with bricks**
 
 - initializes mason in the current directory
   - generates a `mason.yaml`
@@ -219,9 +220,9 @@ Run "mason make hello" to use your first brick.
 
 # Anatomy of the `mason.yaml`
 
-> _Defines the available bricks for a specific workspace_
+**Defines the available bricks for a specific workspace**
 
-- similar to a `pubspec.yaml` or `package.json`
+- similar to `pubspec.yaml`
 - defines bricks instead of dependencies
 - mason will always use the nearest parent `mason.yaml`
 
@@ -258,27 +259,39 @@ bricks:
 
 # `$ mason get` ☁️
 
-> _Install all bricks registered in the nearest parent `mason.yaml`_
+**Install all bricks registered in the nearest parent `mason.yaml`**
 
-- Analogous to `dart pub get` or `npm install`
-- Bricks are cached locally for offline use
+- Analogous to `dart pub get`
 - Generated `mason-lock.json`
-- Brick references are cached in a `.mason` directory (.gitignore)
+- Bricks are cached locally for offline use
+  - add `.mason` to `.gitignore`
 
 ---
 
 # `$ mason get` in action
+
+[.column]
 
 ```sh
 $ mason get
 ✓ Getting bricks (22ms)
 ```
 
+[.column]
+
+[.code-highlight: 2-3]
+
+```
+├── .mason
+├── mason-lock.json
+└── mason.yaml
+```
+
 ---
 
 # `$ mason list` 🗒
 
-> _List all installed bricks`_
+**List all installed bricks`**
 
 - Use `mason ls` shorthand
 - Outputs installed bricks
@@ -322,7 +335,7 @@ $ mason ls
 
 # `$ mason make` 🚧
 
-> _Generate code from a brick_
+**Generate code from a brick**
 
 - looks up brick metadata
 - prompts for any required variables
@@ -433,7 +446,7 @@ Hello Dash! 👋
 
 # Conflict Resolution Strategies
 
-> _By default, `mason` will prompt on each file conflict_
+**By default, `mason` will prompt on each file conflict**
 
 Options:
 
@@ -500,7 +513,7 @@ $ mason make hello
 
 # `$ mason new` ⛏
 
-> _Create a new brick template_
+**Create a new brick template**
 
 - creates a brick in the current directory
   - generates a `brick.yaml`
@@ -528,6 +541,187 @@ $ mason new example
 
 - ✅ Generating a new brick
 - ☑️ Anatomy of a brick
+- ☑️ Brick template syntax
+- ☑️ Hooks
+
+---
+
+[.code-highlight: 5-6]
+
+# Anatomy of a Brick 🧱
+
+[.column]
+
+```
+.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── __brick__
+└── brick.yaml
+```
+
+[.column]
+
+- **`__brick__`**
+  - brick template
+- **`brick.yaml`**
+  - brick metadata (`pubspec.yaml`)
+
+---
+
+# Anatomy of the `brick.yaml`
+
+**Defines the metadata for a specific brick**
+
+[.column]
+
+```yaml
+name: example
+description: An example brick
+version: "0.1.0+1"
+
+environment:
+  mason: ">=0.1.0-dev <0.1.0"
+
+vars:
+  name:
+    type: string
+    description: Your name.
+    default: Dash
+    prompt: What is your name?
+```
+
+[.column]
+
+- can contain zero or more variables
+- variable types include:
+  - `string`, `number`, `boolean`, `enum`, `array`
+
+---
+
+# Variable Type: Array
+
+[.column]
+
+```yaml
+vars:
+  flavors:
+    type: array
+    description: Supported flavors
+    prompt: What flavors would you like to generate?
+    defaults:
+      - development
+      - production
+    values:
+      - development
+      - integration
+      - staging
+      - production
+```
+
+[.column]
+
+```
+$ mason make example
+? What flavors would you like to generate?
+❯ ◉  development
+  ◯  integration
+  ◯  staging
+  ◉  production
+```
+
+---
+
+# Variable Type: Enum
+
+[.column]
+
+```yaml
+vars:
+  license:
+    type: enum
+    default: MIT license
+    prompt: "Choose a License:"
+    values:
+      - "Apache License 2.0"
+      - 'BSD 3-Clause "New" or "Revised" license'
+      - "GNU General Public License (GPL)"
+      - "MIT license"
+      - "Mozilla Public License 2.0"
+```
+
+[.column]
+
+```
+$ mason make example
+? Choose a License:
+  ◯  Apache License 2.0
+  ◯  BSD 3-Clause "New" or "Revised" license
+  ◯  GNU General Public License (GPL)
+❯ ◉  MIT license
+  ◯  Mozilla Public License 2.0
+```
+
+---
+
+[.code-highlight: 5-7]
+
+# Putting it Together 🧩
+
+[.column]
+
+```
+.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── __brick__
+│   └── HELLO.md
+└── brick.yaml
+```
+
+[.column]
+
+##### `__brick__/HELLO.md`
+
+```md
+Hello {{name}}! 👋
+```
+
+##### `brick.yaml`
+
+```yaml
+name: hello
+description: An example brick
+version: "0.1.0+1"
+
+vars:
+  name:
+    type: string
+    description: Your name.
+    prompt: What is your name?
+```
+
+[.column]
+
+```sh
+$ mason make hello
+? What is your name? Vikings
+```
+
+##### `HELLO.md`
+
+```md
+Hello Vikings! 👋
+```
+
+---
+
+# Chapter 2: Checkpoint 📕 🏁
+
+- ✅ Generating a new brick
+- ✅ Anatomy of a brick
 - ☑️ Brick template syntax
 - ☑️ Hooks
 
@@ -586,7 +780,7 @@ $ mason new example
 
 ### Twitter @felangelov
 
-### Github @felangel
+### GitHub @felangel
 
 ---
 
