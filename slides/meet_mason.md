@@ -22,8 +22,7 @@ slidenumbers: true
 
 # Story Time 🧑‍🏫
 
-- Joined a new team
-- Assigned to a new feature
+**I joined a new team and picked up a new feature...**
 
 ![inline](./assets/team.png)
 
@@ -31,7 +30,7 @@ slidenumbers: true
 
 # Story Time 🧑‍🏫
 
-- So I did what any developer would do...
+**So I did what any developer would do...**
 
 ![inline](./assets/copy_paste.png)
 
@@ -39,7 +38,7 @@ slidenumbers: true
 
 # Story Time 🧑‍🏫
 
-- And opened a pull request...
+**And opened a pull request...**
 
 ![inline](./assets/create_pull_request.png)
 
@@ -47,10 +46,9 @@ slidenumbers: true
 
 # Story Time 🧑‍🏫
 
-![inline](./assets/pull_request_rejected.png)
+**🙅‍♂️ I copied a "legacy" feature! 😭**
 
-- Rejected 🙅‍♂️
-- I copied a "legacy" feature 😭
+![inline](./assets/pull_request_rejected.png)
 
 ---
 
@@ -68,15 +66,17 @@ slidenumbers: true
 
 ---
 
-# The Problems
+# I wish we could... 💭
 
-❓ Produce consistent code efficiently
+- Produce code in a way that is:
 
-❓ Code must be customizable
+  - 🔁 Consistent
 
-❓ Should be reusable and extensible
+  - ⚡️ Fast
 
-❓ Should be accessible to team/community
+  - 🧩 Customizable
+
+  - 📦 Reusable
 
 ---
 
@@ -96,7 +96,7 @@ slidenumbers: true
 
 # Better Idea 🧠
 
-- Spend the next year building a tool to automate this
+**Spend the next year building a tool to automate this**
 
 ![inline](assets/automate_meme.webp)
 
@@ -387,19 +387,19 @@ $ mason make hello --name Felix
 
 # `$ mason make` w/config file 📝
 
-_config.json_
-
-```json
-{
-  "name": "Felix"
-}
-```
-
 ```sh
 $ mason make hello -c config.json
 ✓ Made brick hello (41ms)
 ✓ Generated 1 file:
   /me/mason_playground/HELLO.md (identical)
+```
+
+#### `config.json`
+
+```json
+{
+  "name": "Felix"
+}
 ```
 
 ---
@@ -439,6 +439,18 @@ Overwrite HELLO.md? (Yyna) y
 ---
 
 # The updated `HELLO.md` ✨
+
+[.column]
+
+**BEFORE**
+
+```md
+Hello Felix! 👋
+```
+
+[.column]
+
+**AFTER**
 
 ```md
 Hello Dash! 👋
@@ -1182,7 +1194,7 @@ $ mason remove -g widget
 
 ---
 
-# Chapter 4: Publishing Bricks 📙 📦
+# Chapter 4: Publishing Bricks 📙
 
 - ☑️ Signing up
 - ☑️ Logging in
