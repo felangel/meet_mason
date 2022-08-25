@@ -2,13 +2,13 @@ autoscale: true
 footer: @felangelov - Flutter Vikings 2022
 slidenumbers: true
 
-# Meet Mason 🧱
+# Meet Mason 🧱 ⛏
 
-### Introduction Templating and Custom Code Generation
+### Introduction to Templating & Custom Code Generation
 
 ![inline](https://raw.githubusercontent.com/felangel/mason/master/assets/mason_demo.gif)
 
-### Felix Angelov @ Very Good Ventures
+### Felix Angelov @ Very Good Ventures 🦄
 
 ---
 
