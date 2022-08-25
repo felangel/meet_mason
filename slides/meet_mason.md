@@ -314,7 +314,7 @@ $ mason list
 
 ```sh
 # Change to a directory outside the workspace
-$ cd ../dart_playground
+$ cd /me/dart_playground
 
 # List available bricks
 $ mason ls
@@ -991,9 +991,194 @@ Future<void> run(HookContext context) async {
 # Chapter 3: Brick Management 📘
 
 - ☑️ Intro to BrickHub
-- ☑️ Searching for bricks
 - ☑️ Adding / Removing bricks
 - ☑️ Upgrading bricks
+
+---
+
+[.background-color: #0f0f0f]
+[.text: #ffffff]
+[.header: #ffffff]
+
+![inline](assets/brickhub.png)
+
+---
+
+# Chapter 3: Checkpoint 📘 🏁
+
+- ✅ Intro to BrickHub
+- ☑️ Searching for bricks
+- ☑️ Adding / Removing bricks
+
+---
+
+# Brick Search 🔎
+
+```sh
+$ mason search "very good ventures"
+✓ Found 5 bricks. (0.3s)
+
+very_good_dart_package v0.0.1
+A Very Good Dart package created by Very Good Ventures.
+https://brickhub.dev/bricks/very_good_dart_package/0.0.1
+--------------------------------------------------------------------------------
+very_good_flutter_package v0.0.1
+A Very Good Flutter package created by Very Good Ventures.
+https://brickhub.dev/bricks/very_good_flutter_package/0.0.1
+--------------------------------------------------------------------------------
+very_good_core v0.0.1
+A Very Good Flutter app created by Very Good Ventures.
+https://brickhub.dev/bricks/very_good_core/0.0.1
+--------------------------------------------------------------------------------
+very_good_flutter_plugin v0.0.1
+A Very Good federated Flutter plugin created by Very Good Ventures.
+https://brickhub.dev/bricks/very_good_flutter_plugin/0.0.1
+--------------------------------------------------------------------------------
+very_good_dart_cli v0.0.1
+A Very Good Dart CLI created by Very Good Ventures.
+https://brickhub.dev/bricks/very_good_dart_cli/0.0.1
+--------------------------------------------------------------------------------
+```
+
+---
+
+# Chapter 3: Checkpoint 📘 🏁
+
+- ✅ Intro to BrickHub
+- ✅ Searching for bricks
+- ☑️ Adding / Removing bricks
+
+---
+
+# Adding Bricks to Workspace 🗃
+
+```sh
+# Install example from path
+$ mason add example --path ./example
+```
+
+##### `mason.yaml`
+
+```yaml
+bricks:
+  example:
+    path: ./example
+```
+
+---
+
+# Adding Bricks to Workspace 🗃
+
+```sh
+# Install widget from git
+$ mason add widget
+  --git-url https://github.com/felangel/mason
+  --git-path bricks/widget
+```
+
+##### `mason.yaml`
+
+```yaml
+bricks:
+  widget:
+    git:
+      url: https://github.com/felangel/mason
+      path: bricks/widget
+```
+
+---
+
+# Adding Bricks to Workspace 🗃
+
+```sh
+# Install amplify_starter from https://brickhub.dev
+$ mason add amplify_starter
+```
+
+##### `mason.yaml`
+
+```yaml
+bricks:
+  amplify_starter: ^0.2.2
+```
+
+---
+
+# Let's List 'em 🗒
+
+```sh
+$ mason ls
+/me/mason_playground
+├── amplify_starter 0.2.2 -> registry.brickhub.dev
+├── example 0.1.0+1 -> /me/mason_playground/example
+└── widget 0.1.0+1 -> https://github.com/felangel/mason
+```
+
+```sh
+$ cd /me/dart_playground
+$ mason ls
+/me/dart_playground
+└── (empty)
+```
+
+---
+
+# Adding Bricks Globally 🌎
+
+**Globally installed bricks can be used from anywhere on your machine**
+
+```sh
+# Install example from path
+$ mason add -g example --path ./example
+
+# Install widget from git
+$ mason add -g widget
+  --git-url https://github.com/felangel/mason
+  --git-path bricks/widget
+
+# Install amplify_starter from https://brickhub.dev
+$ mason add -g amplify_starter
+```
+
+---
+
+# Listing Global Bricks 🌎
+
+```sh
+$ cd /me/dart_playground
+
+$ mason ls
+/me/dart_playground
+└── (empty)
+
+$ mason ls -g
+/me/.mason-cache/global
+├── amplify_starter 0.2.2 -> registry.brickhub.dev
+├── example 0.1.0+1 -> /me/mason_playground/example
+└── widget 0.1.0+1 -> https://github.com/felangel/mason
+```
+
+---
+
+# Removing Bricks 🗑
+
+```sh
+# Remove local brick
+$ mason remove example
+✓ Removed example (22ms)
+
+# Remove global brick
+$ mason remove -g widget
+✓ Removed widget (21ms)
+```
+
+---
+
+# Chapter 3: Complete 📘 🥳
+
+- ✅ Intro to BrickHub
+- ✅ Searching for bricks
+- ✅ Adding / Removing bricks
 
 ---
 
@@ -1011,6 +1196,27 @@ Future<void> run(HookContext context) async {
 ---
 
 # Community Bricks 🌟
+
+---
+
+# Finally... 💥
+
+**When a new teammate joins and picks up a new feature**
+
+```sh
+$ mason make feature_brick
+? What is the feature name? login
+✓ Made brick feature_brick (0.3s)
+✓ Generated 8 file(s):
+  /me/mason_playground/my_app/lib/login/widgets/login_body.dart (new)
+  /me/mason_playground/my_app/lib/login/view/login_page.dart (new)
+  /me/mason_playground/my_app/lib/login/bloc/login_event.dart (new)
+  /me/mason_playground/my_app/lib/login/bloc/login_state.dart (new)
+  /me/mason_playground/my_app/lib/login/widgets/widgets.dart (new)
+  /me/mason_playground/my_app/lib/login/login.dart (new)
+  /me/mason_playground/my_app/lib/login/bloc/bloc.dart (new)
+  /me/mason_playground/my_app/lib/login/bloc/login_bloc.dart (new)
+```
 
 ---
 
