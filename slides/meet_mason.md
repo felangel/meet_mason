@@ -291,7 +291,7 @@ $ mason get
 
 # `$ mason list` 🗒
 
-**List all installed bricks`**
+**List all installed bricks**
 
 - Use `mason ls` shorthand
 - Outputs installed bricks
@@ -1003,8 +1003,8 @@ Future<void> run(HookContext context) async {
 # Chapter 3: Brick Management 📘
 
 - ☑️ Intro to BrickHub
+- ☑️ Searching for bricks
 - ☑️ Adding / Removing bricks
-- ☑️ Upgrading bricks
 
 ---
 
@@ -1328,13 +1328,15 @@ $ mason make feature_brick
 
 # Let's Recap
 
-✅ Produce consistent code efficiently
+- Produce code in a way that is:
 
-✅ Code must be customizable
+  - ✅ 🔁 Consistent
 
-✅ Should be reusable and extensible
+  - ✅ ⚡️ Fast
 
-✅ Should be accessible to team/community
+  - ✅ 🧩 Customizable
+
+  - ✅ 📦 Reusable
 
 ---
 
