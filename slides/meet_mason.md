@@ -364,9 +364,9 @@ $ mason make hello
   /me/mason_playground/HELLO.md (new)
 ```
 
-[.column]
+---
 
-#### **HELLO.md**
+# What's inside `HELLO.md` 👀
 
 ```md
 Hello Felix! 👋
