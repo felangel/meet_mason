@@ -911,18 +911,94 @@ Hello {{name}}!
 
 ---
 
+# Hooks 🪝
+
+**Custom code that executes before or after generation**
+
+[.column]
+
+`$ mason new example --hooks`
+
+[.column]
+[.code-highlight: 8-12]
+
+```
+.
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── __brick__
+│   └── HELLO.md
+├── brick.yaml
+└── hooks
+    ├── .gitignore
+    ├── post_gen.dart
+    ├── pre_gen.dart
+    └── pubspec.yaml
+```
+
+---
+
+# Hooks Example: `pre_gen.dart`
+
+```dart
+// pre_gen.dart
+import 'dart:io';
+import 'package:mason/mason.dart';
+
+void run(HookContext context) {
+  // Use the `Logger` instance.
+  context.logger.info('hello from pre_gen.dart!');
+
+  // Read vars.
+  final name = context.vars['name'];
+
+  // Update vars.
+  context.vars['current_year'] = DateTime.now().year;
+}
+```
+
+---
+
+# Hooks Example: `post_gen.dart`
+
+```dart
+// post_gen.dart
+import 'dart:io';
+import 'package:mason/mason.dart';
+
+Future<void> run(HookContext context) async {
+  final progress = context.logger.progress('Installing packages');
+
+  // Run `flutter packages get` after generation.
+  await Process.run('flutter', ['packages', 'get']);
+
+  progress.complete();
+}
+```
+
+---
+
+# Chapter 2 Complete 📕 🥳
+
+- ✅ Generating a new brick
+- ✅ Anatomy of a brick
+- ✅ Brick template syntax
+- ✅ Hooks
+
+---
+
 # Chapter 3: Brick Management 📘
 
+- ☑️ Intro to BrickHub
 - ☑️ Searching for bricks
-- ☑️ Adding bricks
-- ☑️ Removing bricks
+- ☑️ Adding / Removing bricks
 - ☑️ Upgrading bricks
 
 ---
 
 # Chapter 4: Publishing Bricks 📙
 
-- ☑️ Intro to BrickHub
 - ☑️ Signing up
 - ☑️ Logging in
 - ☑️ Publishing a brick
