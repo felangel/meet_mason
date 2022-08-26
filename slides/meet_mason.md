@@ -679,9 +679,35 @@ $ mason make example
 
 ---
 
-[.code-highlight: 5-7]
+# Anatomy of the `__brick__`
+
+[.column]
+
+**`__brick__`**
+
+```
+├── README.md
+├── lib
+|   └── {{name.snakeCase()}}.dart
+└── pubspec.yaml
+```
+
+[.column]
+
+**`output`**
+
+```
+├── README.md
+├── lib
+|   └── flutter_vikings_2022.dart
+└── pubspec.yaml
+```
+
+---
 
 # Putting it Together 🧩
+
+[.code-highlight: 5-7]
 
 [.column]
 
@@ -801,9 +827,8 @@ dependencies:
 
 ```md
 {{#platforms}}
-
-- {{.}}
-  {{/platforms}}
+{{.}}
+{{/platforms}}
 ```
 
 [.column]
@@ -817,9 +842,11 @@ dependencies:
 ##### `README.md`
 
 ```md
-- iOS
-- Android
-- Web
+iOS
+
+Android
+
+Web
 ```
 
 ---
