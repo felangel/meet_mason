@@ -703,6 +703,14 @@ $ mason make example
 └── pubspec.yaml
 ```
 
+**`vars`**
+
+```json
+{
+  "name": "Flutter Vikings 2022"
+}
+```
+
 ---
 
 # Putting it Together 🧩
@@ -772,7 +780,7 @@ Hello Viking! 👋
 - mustache using:
   - `package:mustache_template`
 - refer to mustache spec:
-  - https://mustache.github.io/mustache.5.html
+  - [https://mustache.github.io/mustache.5.html](https://mustache.github.io/mustache.5.html)
 
 ---
 
@@ -798,13 +806,6 @@ dependencies:
 
 [.column]
 
-```json
-{
-  "publish": false,
-  "useGoogleFonts": true
-}
-```
-
 ##### `pubspec.yaml`
 
 ```yaml
@@ -815,6 +816,15 @@ dependencies:
     sdk: flutter
 
   google_fonts: latest
+```
+
+##### `vars`
+
+```json
+{
+  "publish": false,
+  "useGoogleFonts": true
+}
 ```
 
 ---
@@ -833,12 +843,6 @@ dependencies:
 
 [.column]
 
-```json
-{
-  "platforms": ["iOS", "Android", "Web"]
-}
-```
-
 ##### `README.md`
 
 ```md
@@ -847,6 +851,14 @@ iOS
 Android
 
 Web
+```
+
+##### `vars`
+
+```json
+{
+  "platforms": ["iOS", "Android", "Web"]
+}
 ```
 
 ---
@@ -986,11 +998,11 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) {
-  // Use the `Logger` instance.
-  context.logger.info('hello from pre_gen.dart!');
-
   // Read vars.
   final name = context.vars['name'];
+
+  // Use the `Logger` instance.
+  context.logger.info('Hello $name!');
 
   // Update vars.
   context.vars['current_year'] = DateTime.now().year;
@@ -1038,6 +1050,10 @@ Future<void> run(HookContext context) async {
 [.background-color: #0f0f0f]
 [.text: #ffffff]
 [.header: #ffffff]
+
+#### [https://brickhub.dev](https://brickhub.dev)
+
+- Free platform to **discover**, **publish**, and **install** community bricks.
 
 ![inline](assets/brickhub.png)
 
