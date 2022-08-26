@@ -1053,9 +1053,9 @@ Future<void> run(HookContext context) async {
 
 #### [https://brickhub.dev](https://brickhub.dev)
 
-- Free platform to **discover**, **publish**, and **install** community bricks.
+Free platform to **discover**, **publish**, and **install** community bricks.
 
-![inline](assets/brickhub.png)
+![inline](assets/brickhub_home.png)
 
 ---
 
@@ -1331,16 +1331,15 @@ $ mason logout
 
 # IDE Integration ⚡️
 
-[.column]
-
-![inline](assets/mason_vscode.png)
-
-[.column]
-
 - `mason init` command
 - `mason add` and `mason remove` commands
 - `mason make` via right-click
 - automatically run `mason get` on save
+
+---
+[.background-color: #0f0f0f]
+
+![inline autoplay mute](assets/mason_vscode.mov)
 
 ---
 
