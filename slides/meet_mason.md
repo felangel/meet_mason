@@ -14,9 +14,7 @@ slidenumbers: true
 
 # About Me 🕶️🦄
 
-![inline](./assets/github.png)![inline 40%](./assets/vgv_lockup.png)
-
-### [https://verygood.ventures](https://verygood.ventures)
+![inline](./assets/github.png)![inline 45%](./assets/tools.png)
 
 ---
 
@@ -1231,15 +1229,6 @@ $ mason remove -g widget
 
 ---
 
-# Chapter 4: Checkpoint 📙 🏁
-
-- ✅ Signing up
-- ☑️ Logging in
-- ☑️ Publishing a brick
-- ☑️ Logging out
-
----
-
 # Logging In 🔐
 
 **Log into brickhub.dev**
@@ -1254,15 +1243,6 @@ You are now logged in as <me@email.com>
 
 ---
 
-# Chapter 4: Checkpoint 📙 🏁
-
-- ✅ Signing up
-- ✅ Logging in
-- ☑️ Publishing a brick
-- ☑️ Logging out
-
----
-
 # Publishing a Brick 📦
 
 **Publish a brick to brickhub.dev**
@@ -1273,15 +1253,6 @@ Do you want to publish my_brick 0.1.0+1? (y/N) y
 ✓ Bundled my_brick (0.1s)
 ✓ Published my_brick to brickhub.dev (0.1s)
 ```
-
----
-
-# Chapter 4: Checkpoint 📙 🏁
-
-- ✅ Signing up
-- ✅ Logging in
-- ✅ Publishing a brick
-- ☑️ Logging out
 
 ---
 
@@ -1305,9 +1276,17 @@ $ mason logout
 
 ---
 
-# Finally... 💥
+# Now
 
-**When a new teammate joins and picks up a new feature**
+**When a new teammate joins and picks up a new feature...**
+
+![inline](./assets/team.png)
+
+---
+
+# Now
+
+**Use mason to generate a new feature...**
 
 ```sh
 $ mason make feature_brick
@@ -1326,11 +1305,19 @@ $ mason make feature_brick
 
 ---
 
+# Now
+
+**And get that pull request merged efficiently 🎉**
+
+![inline](assets/pull_request_approved.webp)
+
+---
+
 # Let's Recap
 
-- Produce code in a way that is:
+- Mason allows us to generate code:
 
-  - ✅ 🔁 Consistent
+  - ✅ 🔁 Consistently
 
   - ✅ ⚡️ Fast
 
@@ -1356,31 +1343,3 @@ $ mason make feature_brick
 ### Twitter @felangelov
 
 ### GitHub @felangel
-
----
-
-# New Features
-
-- https://brickhub.dev/bricks/feature_brick
-- https://brickhub.dev/bricks/model
-- https://brickhub.dev/bricks/service
-- https://brickhub.dev/bricks/app_ui
-
----
-
-# New Packages
-
-- https://brickhub.dev/bricks/very_good_dart_package
-- https://brickhub.dev/bricks/very_good_flutter_package
-- https://brickhub.dev/bricks/app_ui
-- https://brickhub.dev/bricks/widgetbook_starter
-
----
-
-# New Applications
-
-- https://brickhub.dev/bricks/very_good_core
-- https://brickhub.dev/bricks/very_good_dart_cli
-- https://brickhub.dev/bricks/amplify_starter
-- https://brickhub.dev/bricks/flutterfire_starter
-- https://brickhub.dev/bricks/macosui_starter
