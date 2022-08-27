@@ -94,9 +94,9 @@ slidenumbers: true
 
 ---
 
-# Better Idea 🧠
+# Idea 💡
 
-**Spend the next year building a tool to automate this**
+**Why not spend the next year building a tool to automate this?**
 
 ![inline](assets/automate_meme.webp)
 
@@ -347,26 +347,13 @@ $ mason ls
 
 ```sh
 $ mason make hello
-? What is your name? (Dash)
-```
-
----
-
-# `$ mason make` in action
-
-[.column]
-
-```sh
-$ mason make hello
 ? What is your name? (Dash) Felix
 ✓ Made brick hello (52ms)
 ✓ Generated 1 file:
   /me/mason_playground/HELLO.md (new)
 ```
 
----
-
-# What's inside `HELLO.md` 👀
+#### **HELLO.md**
 
 ```md
 Hello Felix! 👋
@@ -374,7 +361,7 @@ Hello Felix! 👋
 
 ---
 
-# `$ mason make` w/command-line args 🧑‍💻
+# `$ mason make`: command-line args 🧑‍💻
 
 ```sh
 $ mason make hello --name Felix
@@ -385,7 +372,7 @@ $ mason make hello --name Felix
 
 ---
 
-# `$ mason make` w/config file 📝
+# `$ mason make`: config file 📝
 
 ```sh
 $ mason make hello -c config.json
@@ -404,7 +391,7 @@ $ mason make hello -c config.json
 
 ---
 
-# `$ mason make` w/custom output directory 🗂
+# `$ mason make`: output directory 🗂
 
 ```sh
 $ mason make hello --name Felix -o ./out
@@ -415,17 +402,7 @@ $ mason make hello --name Felix -o ./out
 
 ---
 
-# `$ mason make` conflicts ❗️
-
-```sh
-$ mason make hello --name Dash
-conflict /me/mason_playground/HELLO.md
-Overwrite HELLO.md? (Yyna)
-```
-
----
-
-# `$ mason make` conflicts ❗️
+# `$ mason make`: conflicts ❗️
 
 ```sh
 $ mason make hello --name Dash
@@ -471,7 +448,7 @@ Options:
 
 ---
 
-# `$ mason make` w/conflict resolution
+# `$ mason make`: conflict resolution
 
 ```sh
 # ❓ Always prompt when there is a file conflict (default)
@@ -777,9 +754,8 @@ Hello Viking! 👋
 
 # Template Syntax
 
-- mustache using:
-  - `package:mustache_template`
-- refer to mustache spec:
+- Powered by Mustache 🥸
+  - [`package:mustache_template`](https://pub.dev/packages/mustache_template)
   - [https://mustache.github.io/mustache.5.html](https://mustache.github.io/mustache.5.html)
 
 ---
@@ -873,6 +849,25 @@ Web
 
 ---
 
+# Lambdas in Action: Widget
+
+**`__brick__/{{name.snakeCase()}}.dart`**
+
+```dart
+import 'package:flutter/widgets.dart';
+
+class {{name.pascalCase()}} extends StatelessWidget {
+  const {{name.pascalCase()}}({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox();
+  }
+}
+```
+
+---
+
 # Built-in Lambdas
 
 | Name           | Example             | Shorthand Syntax              | Full Syntax                                      |
@@ -890,25 +885,6 @@ Web
 | `snakeCase`    | `hello_world`       | `{{variable.snakeCase()}}`    | `{{#snakeCase}}{{variable}}{{/snakeCase}}`       |
 | `titleCase`    | `Hello World`       | `{{variable.titleCase()}}`    | `{{#titleCase}}{{variable}}{{/titleCase}}`       |
 | `upperCase`    | `HELLO WORLD`       | `{{variable.upperCase()}}`    | `{{#upperCase}}{{variable}}{{/upperCase}}`       |
-
----
-
-# Lambdas in Action: Widget
-
-**`__brick__/{{name.snakeCase()}}.dart`**
-
-```dart
-import 'package:flutter/widgets.dart';
-
-class {{name.pascalCase()}} extends StatelessWidget {
-  const {{name.pascalCase()}}({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox();
-  }
-}
-```
 
 ---
 
@@ -1042,66 +1018,37 @@ Future<void> run(HookContext context) async {
 # Chapter 3: Brick Management 📘
 
 - ☑️ Intro to BrickHub
-- ☑️ Searching for bricks
 - ☑️ Adding / Removing bricks
+- ☑️ IDE Integration
 
 ---
 
-[.background-color: #0f0f0f]
-[.text: #ffffff]
-[.header: #ffffff]
+![inline](assets/brickhub_0.png)
 
-#### [https://brickhub.dev](https://brickhub.dev)
+---
 
-Free platform to **discover**, **publish**, and **install** community bricks.
+![inline](assets/brickhub_1.png)
 
-![inline](assets/brickhub_home.png)
+---
+
+![inline](assets/brickhub_2.png)
+
+---
+
+![inline](assets/brickhub_3.png)
+
+---
+
+[.background-color: #020202]
+![inline](assets/brickhub_community.png)
 
 ---
 
 # Chapter 3: Checkpoint 📘 🏁
 
 - ✅ Intro to BrickHub
-- ☑️ Searching for bricks
 - ☑️ Adding / Removing bricks
-
----
-
-# Brick Search 🔎
-
-```sh
-$ mason search "very good ventures"
-✓ Found 5 bricks. (0.3s)
-
-very_good_dart_package v0.0.1
-A Very Good Dart package created by Very Good Ventures.
-https://brickhub.dev/bricks/very_good_dart_package/0.0.1
---------------------------------------------------------------------------------
-very_good_flutter_package v0.0.1
-A Very Good Flutter package created by Very Good Ventures.
-https://brickhub.dev/bricks/very_good_flutter_package/0.0.1
---------------------------------------------------------------------------------
-very_good_core v0.0.1
-A Very Good Flutter app created by Very Good Ventures.
-https://brickhub.dev/bricks/very_good_core/0.0.1
---------------------------------------------------------------------------------
-very_good_flutter_plugin v0.0.1
-A Very Good federated Flutter plugin created by Very Good Ventures.
-https://brickhub.dev/bricks/very_good_flutter_plugin/0.0.1
---------------------------------------------------------------------------------
-very_good_dart_cli v0.0.1
-A Very Good Dart CLI created by Very Good Ventures.
-https://brickhub.dev/bricks/very_good_dart_cli/0.0.1
---------------------------------------------------------------------------------
-```
-
----
-
-# Chapter 3: Checkpoint 📘 🏁
-
-- ✅ Intro to BrickHub
-- ✅ Searching for bricks
-- ☑️ Adding / Removing bricks
+- ☑️ IDE Integration
 
 ---
 
@@ -1229,11 +1176,40 @@ $ mason remove -g widget
 
 ---
 
+# Chapter 3: Checkpoint 📘 🏁
+
+- ✅ Intro to BrickHub
+- ✅ Adding / Removing bricks
+- ☑️ IDE Integration
+
+---
+
+# IDE Integration ⚡️
+
+[.column]
+
+- `mason init` command
+- `mason add` and `mason remove` commands
+- `mason make` via right-click
+- `mason get` on save
+
+[.column]
+
+![inline](assets/mason_vscode.png)
+
+---
+
+[.background-color: #0f0f0f]
+
+![inline autoplay mute](assets/mason_vscode.mov)
+
+---
+
 # Chapter 3: Complete 📘 🥳
 
 - ✅ Intro to BrickHub
-- ✅ Searching for bricks
 - ✅ Adding / Removing bricks
+- ✅ IDE Integration
 
 ---
 
@@ -1326,24 +1302,6 @@ $ mason logout
 - ✅ Logging in
 - ✅ Publishing a brick
 - ✅ Logging out
-
----
-
-# IDE Integration ⚡️
-
-- `mason init` command
-- `mason add` and `mason remove` commands
-- `mason make` via right-click
-- automatically run `mason get` on save
-
----
-[.background-color: #0f0f0f]
-
-![inline autoplay mute](assets/mason_vscode.mov)
-
----
-
-# Community Bricks 🌟
 
 ---
 
