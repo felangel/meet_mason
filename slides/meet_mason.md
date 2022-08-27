@@ -259,7 +259,7 @@ bricks:
 
 **Install all bricks registered in the nearest parent `mason.yaml`**
 
-- Analogous to `dart pub get`
+- Think `dart pub get`
 - Generated `mason-lock.json`
 - Bricks are cached locally for offline use
   - add `.mason` to `.gitignore`
@@ -1260,7 +1260,7 @@ Do you want to publish my_brick 0.1.0+1? (y/N) y
 
 **Log out of brickhub.dev**
 
-```sh
+```
 $ mason logout
 ✓ Logged out of brickhub.dev (3ms)
 ```
@@ -1276,7 +1276,7 @@ $ mason logout
 
 ---
 
-# Now
+# 1 Year Later
 
 **When a new teammate joins and picks up a new feature...**
 
@@ -1284,7 +1284,7 @@ $ mason logout
 
 ---
 
-# Now
+# 1 Year Later
 
 **Use mason to generate a new feature...**
 
@@ -1305,7 +1305,7 @@ $ mason make feature_brick
 
 ---
 
-# Now
+# 1 Year Later
 
 **And get that pull request merged efficiently 🎉**
 
