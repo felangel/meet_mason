@@ -115,8 +115,8 @@ slidenumbers: true
 [.column]
 
 - Create and consume reusable templates called bricks 🧱
-- Powered by Dart and Mustache 🎯 🥸
-- Inspired by Stagehand, Yeoman, and Cookiecutter ✨
+- Powered by [Dart](https://dart.dev) and [Mustache](https://mustache.github.io) 🎯 🥸
+- Inspired by [Stagehand](https://github.com/dart-archive/stagehand), [Yeoman](https://yeoman.io), and [Cookiecutter](https://github.com/cookiecutter/cookiecutter) ✨
 
 ---
 
@@ -144,8 +144,6 @@ brew install mason
 
 # Mason CLI Overview
 
-[.column]
-
 ```sh
 $ mason
 🧱  mason • lay the foundation!
@@ -155,30 +153,8 @@ Usage: mason <command> [arguments]
 Global options:
 -h, --help       Print this usage information.
     --version    Print the current version.
-```
 
-[.column]
-
-```
-Available commands:
-  add        Adds a brick from a local or remote source.
-  bundle     Generates a bundle from a brick template.
-  cache      Interact with mason cache.
-  get        Gets all bricks in the nearest mason.yaml.
-  init       Initialize mason in the current directory.
-  list       Lists installed bricks.
-  login      Log into brickhub.dev.
-  logout     Log out of brickhub.dev.
-  make       Generate code using an existing brick template.
-  new        Creates a new brick template.
-  publish    Publish the current brick to brickhub.dev.
-  remove     Removes a brick.
-  search     Search published bricks on brickhub.dev.
-  unbundle   Generates a brick template from a bundle.
-  update     Update mason.
-  upgrade    Upgrade bricks to their latest versions.
-
-Run "mason help <command>" for more information about a command.
+Available commands: ...
 ```
 
 ---
@@ -199,6 +175,7 @@ Run "mason help <command>" for more information about a command.
 - initializes mason in the current directory
   - generates a `mason.yaml`
 - allows you to work with locally scoped bricks
+- mason always uses nearest parent `mason.yaml`
 
 ---
 
@@ -217,16 +194,6 @@ Run "mason make hello" to use your first brick.
 ---
 
 # Anatomy of the `mason.yaml`
-
-**Defines the available bricks for a specific workspace**
-
-- similar to `pubspec.yaml`
-- defines bricks instead of dependencies
-- mason will always use the nearest parent `mason.yaml`
-
----
-
-# The generated `mason.yaml`
 
 ```yaml
 # Register bricks which can be consumed via the Mason CLI.
@@ -351,7 +318,7 @@ $ mason make hello
   /me/mason_playground/HELLO.md (new)
 ```
 
-#### **HELLO.md**
+#### **`HELLO.md`**
 
 ```md
 Hello Felix! 👋
@@ -411,13 +378,9 @@ Overwrite HELLO.md? (Yyna) y
   /me/mason_playground/HELLO.md (new)
 ```
 
----
-
-# The updated `HELLO.md` ✨
-
 [.column]
 
-**BEFORE**
+#### **BEFORE**
 
 ```md
 Hello Felix! 👋
@@ -425,7 +388,7 @@ Hello Felix! 👋
 
 [.column]
 
-**AFTER**
+#### **AFTER**
 
 ```md
 Hello Dash! 👋
@@ -663,7 +626,7 @@ $ mason make example
 ```
 ├── README.md
 ├── lib
-|   └── {{name.snakeCase()}}.dart
+|   └── {{name}}.dart
 └── pubspec.yaml
 ```
 
@@ -682,7 +645,7 @@ $ mason make example
 
 ```json
 {
-  "name": "Flutter Vikings 2022"
+  "name": "flutter_vikings_2022"
 }
 ```
 
@@ -730,13 +693,13 @@ vars:
 
 ```sh
 $ mason make hello
-? What is your name? Viking
+? What is your name? Vikings
 ```
 
 ##### `HELLO.md`
 
 ```md
-Hello Viking! 👋
+Hello Vikings! 👋
 ```
 
 ---
@@ -839,17 +802,9 @@ Web
 
 # Template Syntax: Lambdas
 
-**Functions that can be used to manipulate rendered text**
+[.column]
 
-- Standard Syntax: `{{#upperCase}}{{name}}{{/upperCase}}`
-
-- Shorthand: `{{name.upperCase()}}`
-
----
-
-# Lambdas in Action: Widget
-
-**`__brick__/{{name.snakeCase()}}.dart`**
+##### **`__brick__/{{name.snakeCase()}}.dart`**
 
 ```dart
 import 'package:flutter/widgets.dart';
@@ -862,6 +817,29 @@ class {{name.pascalCase()}} extends StatelessWidget {
     return const SizedBox();
   }
 }
+```
+
+[.column]
+
+##### **`viking_ship.dart`**
+
+```dart
+import 'package:flutter/widgets.dart';
+
+class VikingShip extends StatelessWidget {
+  const VikingShip({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox();
+  }
+}
+```
+
+**`vars`**
+
+```json
+{ "name": "viking ship" }
 ```
 
 ---
@@ -1016,6 +994,7 @@ Future<void> run(HookContext context) async {
 # Chapter 3: Brick Management 📘
 
 - ☑️ Intro to BrickHub
+- ☑️ Publishing a brick
 - ☑️ Adding / Removing bricks
 - ☑️ IDE Integration
 
@@ -1045,6 +1024,63 @@ Future<void> run(HookContext context) async {
 # Chapter 3: Checkpoint 📘 🏁
 
 - ✅ Intro to BrickHub
+- ☑️ Publishing a brick
+- ☑️ Adding / Removing bricks
+- ☑️ IDE Integration
+
+---
+
+# Signing Up ✍️
+
+- 🙋 Request access at [https://brickhub.dev](https://brickhub.dev)
+- 📬 Receive email invite
+- ✍️ Sign up at [https://brickhub.dev/signup](https://brickhub.dev/signup)
+- 📧 Verify email
+
+---
+
+# Logging In 🔐
+
+**Log into brickhub.dev**
+
+```
+$ mason login
+email: me@email.com
+password: ******
+✓ Logged into brickhub.dev (0.5s)
+You are now logged in as <me@email.com>
+```
+
+---
+
+# Publishing a Brick 📦
+
+**Publish a brick to brickhub.dev**
+
+```sh
+$ mason publish --directory ./my_brick
+Do you want to publish my_brick 0.1.0+1? (y/N) y
+✓ Bundled my_brick (0.1s)
+✓ Published my_brick to brickhub.dev (0.1s)
+```
+
+---
+
+# Logging Out 🚪
+
+**Log out of brickhub.dev**
+
+```
+$ mason logout
+✓ Logged out of brickhub.dev (3ms)
+```
+
+---
+
+# Chapter 3: Checkpoint 📘 🏁
+
+- ✅ Intro to BrickHub
+- ✅ Publishing a brick
 - ☑️ Adding / Removing bricks
 - ☑️ IDE Integration
 
@@ -1177,6 +1213,7 @@ $ mason remove -g widget
 # Chapter 3: Checkpoint 📘 🏁
 
 - ✅ Intro to BrickHub
+- ✅ Publishing a brick
 - ✅ Adding / Removing bricks
 - ☑️ IDE Integration
 
@@ -1206,77 +1243,13 @@ $ mason remove -g widget
 # Chapter 3: Complete 📘 🥳
 
 - ✅ Intro to BrickHub
+- ✅ Publishing a brick
 - ✅ Adding / Removing bricks
 - ✅ IDE Integration
 
 ---
 
-# Chapter 4: Publishing Bricks 📙
-
-- ☑️ Signing up
-- ☑️ Logging in
-- ☑️ Publishing a brick
-- ☑️ Logging out
-
----
-
-# Signing Up ✍️
-
-- 🙋 Request access at [https://brickhub.dev](https://brickhub.dev)
-- 📬 Receive email invite
-- ✍️ Sign up at [https://brickhub.dev/signup](https://brickhub.dev/signup)
-- 📧 Verify email
-
----
-
-# Logging In 🔐
-
-**Log into brickhub.dev**
-
-```sh
-$ mason login
-email: me@email.com
-password: ******
-✓ Logged into brickhub.dev (0.5s)
-You are now logged in as <me@email.com>
-```
-
----
-
-# Publishing a Brick 📦
-
-**Publish a brick to brickhub.dev**
-
-```sh
-$ mason publish --directory ./my_brick
-Do you want to publish my_brick 0.1.0+1? (y/N) y
-✓ Bundled my_brick (0.1s)
-✓ Published my_brick to brickhub.dev (0.1s)
-```
-
----
-
-# Logging Out 🚪
-
-**Log out of brickhub.dev**
-
-```
-$ mason logout
-✓ Logged out of brickhub.dev (3ms)
-```
-
----
-
-# Chapter 4: Complete 📙 🥳
-
-- ✅ Signing up
-- ✅ Logging in
-- ✅ Publishing a brick
-- ✅ Logging out
-
----
-
-# 1 Year Later
+# 1 Year Later ⌛️
 
 **When a new teammate joins and picks up a new feature...**
 
@@ -1284,7 +1257,7 @@ $ mason logout
 
 ---
 
-# 1 Year Later
+# 1 Year Later ⌛️
 
 **Use mason to generate a new feature...**
 
@@ -1305,7 +1278,7 @@ $ mason make feature_brick
 
 ---
 
-# 1 Year Later
+# 1 Year Later ⌛️
 
 **And get that pull request merged efficiently 🎉**
 
@@ -1313,7 +1286,7 @@ $ mason make feature_brick
 
 ---
 
-# Let's Recap
+# Let's Recap 📝
 
 - Mason allows us to generate code:
 
