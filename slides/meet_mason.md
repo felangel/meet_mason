@@ -6,7 +6,7 @@ slidenumbers: true
 
 ### Introduction to Templating & Custom Code Generation
 
-![inline](https://raw.githubusercontent.com/felangel/mason/master/assets/mason_demo.gif)
+![inline](./assets/mason_demo.gif)
 
 ### Felix Angelov @ Very Good Ventures 🦄
 
@@ -92,9 +92,9 @@ slidenumbers: true
 
 ---
 
-# Idea 💡
+# Or...
 
-![inline](assets/automate_meme.webp)
+![inline](https://imgs.xkcd.com/comics/the_general_problem.png)
 
 ---
 
@@ -108,7 +108,7 @@ slidenumbers: true
 
 [.column]
 
-![inline](https://raw.githubusercontent.com/felangel/mason/master/assets/mason_demo.gif)
+![inline](./assets/mason_demo.gif)
 
 [.column]
 
