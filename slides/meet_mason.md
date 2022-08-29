@@ -94,8 +94,6 @@ slidenumbers: true
 
 # Idea 💡
 
-**Why not spend the next year building a tool to automate this?**
-
 ![inline](assets/automate_meme.webp)
 
 ---
@@ -1249,7 +1247,7 @@ $ mason remove -g widget
 
 ---
 
-# 1 Year Later ⌛️
+# Now ⌛️
 
 **When a new teammate joins and picks up a new feature...**
 
@@ -1257,7 +1255,7 @@ $ mason remove -g widget
 
 ---
 
-# 1 Year Later ⌛️
+# Now ⌛️
 
 **Use mason to generate a new feature...**
 
@@ -1278,7 +1276,7 @@ $ mason make feature_brick
 
 ---
 
-# 1 Year Later ⌛️
+# Now ⌛️
 
 **And get that pull request merged efficiently 🎉**
 
