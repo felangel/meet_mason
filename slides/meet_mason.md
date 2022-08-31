@@ -550,6 +550,28 @@ vars:
 
 ---
 
+# Variable Type: `boolean`
+
+[.column]
+
+```yaml
+vars:
+  dependabot:
+    type: boolean
+    description: Whether to generate a dependabot.yaml
+    prompt: Would you like to add dependabot?
+    default: true
+```
+
+[.column]
+
+```
+$ mason make example
+? Would you like to add dependabot? (Y/n)
+```
+
+---
+
 # Variable Type: `array`
 
 [.column]
