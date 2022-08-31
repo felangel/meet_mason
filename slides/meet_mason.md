@@ -296,7 +296,7 @@ $ mason ls
 
 ---
 
-# `$ mason make` 🚧
+# `$ mason make` 👷
 
 **Generate code from a brick**
 
@@ -306,7 +306,7 @@ $ mason ls
 
 ---
 
-# `$ mason make` in action
+# `$ mason make` in action 👷
 
 ```sh
 $ mason make hello
@@ -425,6 +425,15 @@ $ mason make hello --name Dash --on-conflict append
 
 ---
 
+# `$ mason make`: detecting changes 🕵️
+
+```sh
+# 🚨 Exit with error if any files were changed
+$ mason make hello --name Dash --set-exit-if-changed
+```
+
+---
+
 # Chapter 1 Complete 📕 🥳
 
 - ✅ Install Mason CLI
@@ -436,7 +445,7 @@ $ mason make hello --name Dash --on-conflict append
 
 # Chapter 1 Summary 📕 📝
 
-```
+```sh
 # 🎯 Activate from https://pub.dev
 $ dart pub global activate mason_cli
 
@@ -558,8 +567,8 @@ vars:
 vars:
   dependabot:
     type: boolean
-    description: Whether to generate a dependabot.yaml
-    prompt: Would you like to add dependabot?
+    description: Whether to add dependabot
+    prompt: Do you want to add dependabot?
     default: true
 ```
 
@@ -567,7 +576,7 @@ vars:
 
 ```
 $ mason make example
-? Would you like to add dependabot? (Y/n)
+? Do you want to add dependabot? (Y/n)
 ```
 
 ---
@@ -962,6 +971,20 @@ Hello {{name}}!
 
 ---
 
+# Hooks Example: `pubspec.yaml`
+
+```yaml
+name: example_hooks
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  mason: ^0.1.0-dev
+```
+
+---
+
 # Hooks Example: `pre_gen.dart`
 
 ```dart
@@ -1106,10 +1129,39 @@ $ mason logout
 
 ---
 
+# `$ mason search` 🔎
+
+**Search published bricks on brickhub.dev.**
+
+- full text search 📝
+- sorted by popularity 📈
+- functionally equivalent to using brickhub search 🧱
+
+---
+
+# `$ mason search` in action 🔎
+
+```
+$ mason search widgetbook
+✓ Found 2 bricks. (0.7s)
+
+widgetbook_starter v0.1.0+1
+A brick to setup widgetbook for a Flutter app.
+https://brickhub.dev/bricks/widgetbook_starter/0.1.0+1
+--------------------------------------------------------------------------------
+widgetbook_app v0.1.0+1
+A brick to simplify the setup of a Widgetbook Flutter app when working with packages and mono-repos.
+https://brickhub.dev/bricks/widgetbook_app/0.1.0+1
+--------------------------------------------------------------------------------
+```
+
+---
+
 # Adding Bricks to Workspace 🗃
 
+**Install example from path**
+
 ```sh
-# Install example from path
 $ mason add example --path ./example
 ```
 
@@ -1125,8 +1177,9 @@ bricks:
 
 # Adding Bricks to Workspace 🗃
 
+**# Install widget from git**
+
 ```sh
-# Install widget from git
 $ mason add widget
   --git-url https://github.com/felangel/mason
   --git-path bricks/widget
@@ -1138,16 +1191,17 @@ $ mason add widget
 bricks:
   widget:
     git:
-      url: https://github.com/felangel/mason
-      path: bricks/widget
+      url: "https://github.com/felangel/mason"
+      path: "bricks/widget"
 ```
 
 ---
 
 # Adding Bricks to Workspace 🗃
 
+**Install amplify_starter from https://brickhub.dev**
+
 ```sh
-# Install amplify_starter from https://brickhub.dev
 $ mason add amplify_starter
 ```
 
@@ -1317,6 +1371,30 @@ $ mason make feature_brick
   - ✅ 🧩 Customizable
 
   - ✅ 📦 Reusable
+
+---
+
+# Bonus: `package:mason` in action
+
+```dart
+import 'dart:io';
+import 'package:mason/mason.dart';
+
+Future<void> main() async {
+  final brick = Brick.version(name: 'hello', version: '^0.1.0+1');
+  final generator = await MasonGenerator.fromBrick(brick);
+  final target = DirectoryGeneratorTarget(Directory.current);
+  await generator.generate(target, vars: <String, dynamic>{'name': 'Dash'});
+}
+```
+
+---
+
+# Bonus: `package:mason` in the wild
+
+- 🐸 [`package:dart_frog_cli`](https://pub.dev/packages/dart_frog_cli)
+- 😎 [`package:umbra_cli`](https://pub.dev/packages/umbra_cli)
+- 🦄 [`package:very_good_cli`](https://pub.dev/packages/very_good_cli)
 
 ---
 
